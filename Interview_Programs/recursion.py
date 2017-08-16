@@ -29,3 +29,19 @@ def str_reversal(string):
         return str_reversal(string[1:]) + string[0]
 
 print(str_reversal('Santosh'))
+
+
+fibTable = [0, 1]
+
+
+def fibonacci(a):
+    if a < 0:
+        print('Invalid input')
+    elif a <= len(fibTable):
+        return fibTable[a-1]
+    else:
+        temp_fib = fibonacci(a-1) + fibonacci(a-2)
+        fibTable.append(temp_fib)
+        return temp_fib
+
+print(fibonacci(300))
