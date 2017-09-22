@@ -17,7 +17,7 @@ def remove_dup_after_sorting(arr):
 if __name__ == '__main__':
     arr = [10, 10, 1, 1, 1, 3, 3, 4, 5, 6, 7, 8, 8, 9]
     print(remove_dup_after_sorting(sorted(arr)))
-    print(dict.fromkeys(arr, 10))
+    print(list(dict.fromkeys(arr))) # pythonic way.
 
 
 # add more ways to do this below
