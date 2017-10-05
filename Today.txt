@@ -1,7 +1,24 @@
-1. Revise React
-2. Revise Redux form (go through all the videos once)
-3. Revise multithreading.
-4. Complete Java interview Questions.
-5. Download Django videos.
-6. Design Priciples.
-7. Collections
+
+1 React:
+ - revision (done))
+ - Go through the videos about redux form.
+ - Promise
+ - call back functions
+
+
+2. Java:
+  - Basics (done)
+  - Design Principles.
+  - Collections.
+  - Hashcode and equals?
+  
+
+3. Python:
+  - Revision.
+  - Interview Questions.
+  
+  
+4. Django
+
+
+5. Interview Programs
