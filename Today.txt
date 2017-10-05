@@ -1,0 +1,7 @@
+1. Revise React
+2. Revise Redux form (go through all the videos once)
+3. Revise multithreading.
+4. Complete Java interview Questions.
+5. Download Django videos.
+6. Design Priciples.
+7. Collections
