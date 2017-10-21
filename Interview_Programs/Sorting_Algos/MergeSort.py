@@ -1,43 +1,72 @@
-def merge(a,b):
-    """ Function to merge two arrays """
-    print('Inside Merging')
-    print(a)
-    print(b)
-    c = []
-    while len(a) != 0 and len(b) != 0:
-        if a[0] < b[0]:
-            c.append(a[0])
-            a.remove(a[0])
+# Merges two subarrays of arr[].
+# First subarray is arr[l..m]
+# Second subarray is arr[m+1..r]
+def merge(arr, l, m, r):
+    n1 = m - l + 1
+    n2 = r- m
+
+    # create temp arrays
+    L = []
+    R = []
+
+    # Copy data to temp arrays L[] and R[]
+    for i in range(0 , n1):
+        L[i] = arr[l + i]
+
+    for j in range(0 , n2):
+        R[j] = arr[m + 1 + j]
+
+    # Merge the temp arrays back into arr[l..r]
+    i = 0     # Initial index of first subarray
+    j = 0     # Initial index of second subarray
+    k = l     # Initial index of merged subarray
+
+    while i < n1 and j < n2 :
+        if L[i] <= R[j]:
+            arr[k] = L[i]
+            i += 1
         else:
-            c.append(b[0])
-            b.remove(b[0])
-    if len(a) == 0:
-        c += b
-    else:
-        c += a
-    print(c)
-    return c
+            arr[k] = R[j]
+            j += 1
+        k += 1
 
-# Code for merge sort
+    # Copy the remaining elements of L[], if there
+    # are any
+    while i < n1:
+        arr[k] = L[i]
+        i += 1
+        k += 1
 
-def mergesort(x):
-    """ Function to sort an array using merge sort algorithm """
-    print('Current Value  of x -- ')
-    print(x)
-    if len(x) == 0 or len(x) == 1:
-        return x
-    else:
-        middle = int(len(x)/2)
-        print('*' * 10)
-        print(middle)
-        a = mergesort(x[:middle])
-        print('time to check value b')
-        b = mergesort(x[middle:])
-        print(a)
-        print(b)
-        print('*' * 10)
-        return merge(a,b)
+    # Copy the remaining elements of R[], if there
+    # are any
+    while j < n2:
+        arr[k] = R[j]
+        j += 1
+        k += 1
+
+# l is for left index and r is right index of the
+# sub-array of arr to be sorted
+def mergeSort(arr,l,r):
+    if l < r:
+
+        # Same as (l+r)/2, but avoids overflow for
+        # large l and h
+        m = (l+(r-1))/2
+
+        # Sort first and second halves
+        mergeSort(arr, l, m)
+        mergeSort(arr, m+1, r)
+        merge(arr, l, m, r)
 
 
-my_list = [2, 3, 100, 1, 4, 9, 10]
-print(mergesort(my_list))
+# Driver code to test above
+arr = [12, 11, 13, 5, 6, 7]
+n = len(arr)
+print ("Given array is")
+for i in range(n):
+    print ("%d" %arr[i]),
+
+mergeSort(arr,0,n-1)
+print ("\n\nSorted array is")
+for i in range(n):
+    print ("%d" %arr[i])

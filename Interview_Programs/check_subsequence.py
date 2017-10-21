@@ -18,7 +18,7 @@ def is_Subsequence(string1, string2, len1, len2):
 
 if __name__ == '__main__':
     string1 = 'abcdef'
-    string2 = 'dfe'
+    string2 = 'cb'
     # check if string2 is a substring of string1
     sub_check = is_Subsequence(string1, string2, len(string1), len(string2))
     print(sub_check)
